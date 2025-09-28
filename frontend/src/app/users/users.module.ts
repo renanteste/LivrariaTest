@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { UsersRoutingModule } from './users-routing.module';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
-import { UserCreateComponent } from './user-create/user-create.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { UsersRoutingModule } from './users-routing.module';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
-    UserListComponent,
-    UserFormComponent,
-    UserCreateComponent
+    UserRegistrationComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     UsersRoutingModule,
+    ReactiveFormsModule,
+    FormsModule // ← ESSENCIAL para template-driven forms
   ]
 })
-export class UsersModule {}
+export class UsersModule { }

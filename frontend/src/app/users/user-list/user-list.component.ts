@@ -1,42 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from '../user.service';
-import { UserDto } from '../models/user.dto';
+import { UsersService, User } from '../../services/users.service';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css'],
+  styleUrls: ['./user-list.component.scss'],
   standalone: false
 })
 export class UserListComponent implements OnInit {
-  users: UserDto[] = [];
-  loading = false;
-  error: string | null = null;
+  users: User[] = [];
+  loading: boolean = false;
+  errorMessage: string = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {
-    this.load();
+    this.loadUsers();
   }
 
-  load(): void {
+  loadUsers(): void {
     this.loading = true;
-    this.userService.listUsers().subscribe({
-      next: (data) => { this.users = data; this.loading = false; },
-      error: (err) => { this.error = err?.message ?? 'Erro ao carregar'; this.loading = false; }
-    });
-  }
-
-  onEdit(id: string): void {
-    this.router.navigate(['/users/edit', id]);
-  }
-
-  onDelete(id: string): void {
-    if (!confirm('Tem certeza que deseja excluir este usuário?')) return;
-    this.userService.deleteUser(id).subscribe({
-      next: () => this.load(),
-      error: () => alert('Erro ao excluir usuário.')
+    this.usersService.getUsers().subscribe({
+      next: (users) => {
+        this.users = users;
+        this.loading = false;
+      },
+      error: (error) => {
+        this.errorMessage = 'Erro ao carregar usuários. Tente novamente.';
+        this.loading = false;
+        console.error('Error loading users:', error);
+      }
     });
   }
 }

@@ -1,34 +1,38 @@
-<div class="user-list">
-  <div class="toolbar">
-    <h2>Usuários</h2>
-    <div class="actions">
-      <button routerLink="/users/create" class="btn">+ Novo Usuário</button>
-    </div>
+<div class="user-list-container">
+  <h2>Lista de Usuários</h2>
+
+  <div *ngIf="loading" class="loading">
+    Carregando usuários...
   </div>
 
-  <table *ngIf="users?.length; else empty" class="table">
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && users.length === 0" class="no-users">
+    Nenhum usuário cadastrado.
+  </div>
+
+  <table *ngIf="!loading && users.length > 0" class="users-table">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Nome</th>
-        <th>Email</th>
-        <th>Cadastro</th>
-        <th>Ações</th>
+        <th>E-mail</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let u of users">
-        <td>{{ u.nome }}</td>
-        <td>{{ u.email }}</td>
-        <td>{{ u.createdAt | date:'short' }}</td>
-        <td class="actions-col">
-          <button (click)="onEdit(u.id)" title="Editar">✏️</button>
-          <button (click)="onDelete(u.id)" title="Excluir">🗑️</button>
-        </td>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
       </tr>
     </tbody>
   </table>
 
-  <ng-template #empty>
-    <p class="empty">Nenhum usuário cadastrado. Clique em “Novo Usuário” para registrar.</p>
-  </ng-template>
+  <button
+    class="btn btn-primary"
+    routerLink="/users/register">
+    Cadastrar Novo Usuário
+  </button>
 </div>

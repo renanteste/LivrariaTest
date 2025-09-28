@@ -1,0 +1,71 @@
+<div class="registration-container">
+  <h2>Cadastro de Usuário</h2>
+
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()" class="user-form">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input
+        id="name"
+        type="text"
+        [(ngModel)]="user.name"
+        name="name"
+        required
+        class="form-control"
+        #name="ngModel">
+      <div *ngIf="name.invalid && name.touched" class="error-message">
+        Nome é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input
+        id="email"
+        type="email"
+        [(ngModel)]="user.email"
+        name="email"
+        required
+        email
+        class="form-control"
+        #email="ngModel">
+      <div *ngIf="email.invalid && email.touched" class="error-message">
+        E-mail válido é obrigatório
+      </div>
+    </div>
+
+    <!-- ADICIONAR CAMPO DE SENHA -->
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input
+        id="password"
+        type="password"
+        [(ngModel)]="user.password"
+        name="password"
+        required
+        minlength="6"
+        class="form-control"
+        #password="ngModel">
+      <div *ngIf="password.invalid && password.touched" class="error-message">
+        Senha é obrigatória (mínimo 6 caracteres)
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message server-error">
+      {{ errorMessage }}
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!userForm.form.valid">
+      Cadastrar
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="router.navigate(['/users'])">
+      Ver Lista de Usuários
+    </button>
+  </form>
+</div>
