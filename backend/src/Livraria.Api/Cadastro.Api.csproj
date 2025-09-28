@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Livraria.Application\Livraria.Application.csproj" />
-    <ProjectReference Include="..\Livraria.Infrastructure\Livraria.Infrastructure.csproj" />
+    <ProjectReference Include="..\Livraria.Application\Cadastro.Application.csproj" />
+    <ProjectReference Include="..\Livraria.Infrastructure\Cadastro.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

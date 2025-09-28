@@ -5,17 +5,17 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Api", "src\Livraria.Api\Livraria.Api.csproj", "{892B85E4-AFAB-431E-8CC7-11C82B6F515F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Api", "src\Livraria.Api\Cadastro.Api.csproj", "{892B85E4-AFAB-431E-8CC7-11C82B6F515F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Application", "src\Livraria.Application\Livraria.Application.csproj", "{9678D7C6-36B1-4316-B1EE-EDFDA1718003}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Application", "src\Livraria.Application\Cadastro.Application.csproj", "{9678D7C6-36B1-4316-B1EE-EDFDA1718003}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Domain", "src\Livraria.Domain\Livraria.Domain.csproj", "{F7A36E75-41C6-461B-9EA8-9A434C3760B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Domain", "src\Livraria.Domain\Cadastro.Domain.csproj", "{F7A36E75-41C6-461B-9EA8-9A434C3760B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Infrastructure", "src\Livraria.Infrastructure\Livraria.Infrastructure.csproj", "{30F3AC14-C45B-445C-BB38-9B5990550F66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Infrastructure", "src\Livraria.Infrastructure\Cadastro.Infrastructure.csproj", "{30F3AC14-C45B-445C-BB38-9B5990550F66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Application.Tests", "tests\Livraria.Application.Tests\Livraria.Application.Tests.csproj", "{CEA16BA7-E569-4C66-88C0-3DEFD27C5FAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Application.Tests", "tests\Livraria.Application.Tests\Cadastro.Application.Tests.csproj", "{CEA16BA7-E569-4C66-88C0-3DEFD27C5FAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,5 +97,8 @@ Global
 		{F7A36E75-41C6-461B-9EA8-9A434C3760B0} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{30F3AC14-C45B-445C-BB38-9B5990550F66} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{CEA16BA7-E569-4C66-88C0-3DEFD27C5FAD} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E4A766A-0BBB-41B1-AEFA-FCBDA5329C26}
 	EndGlobalSection
 EndGlobal

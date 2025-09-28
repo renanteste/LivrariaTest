@@ -10,8 +10,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Livraria.Application\Livraria.Application.csproj" />
-		<ProjectReference Include="..\Livraria.Domain\Livraria.Domain.csproj" />
+		<ProjectReference Include="..\Livraria.Application\Cadastro.Application.csproj" />
+		<ProjectReference Include="..\Livraria.Domain\Cadastro.Domain.csproj" />
 	</ItemGroup>
 
   <PropertyGroup>
