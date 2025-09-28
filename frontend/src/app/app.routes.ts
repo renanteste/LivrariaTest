@@ -1,14 +1,14 @@
-import { Routes } from '@angular/router';
-import { UserListComponent } from './users/user-list/user-list.component';
-import { UserFormComponent } from './users/user-form/user-form.component';
+import { Route } from '@angular/router';
 
-export const appRoutes: Routes = [
-  { path: '', redirectTo: 'users', pathMatch: 'full' }, // Redireciona para a listagem de usuários
+export const routes: Route[] = [
   {
     path: 'users',
-    children: [
-      { path: '', component: UserListComponent }, // Rota para listar usuários
-      { path: 'form', component: UserFormComponent }, // Rota para cadastrar/editar usuário
-    ],
+    loadChildren: () =>
+      import('./users/users.module').then(m => m.UsersModule)
   },
+  {
+    path: '',
+    redirectTo: 'users',
+    pathMatch: 'full'
+  }
 ];

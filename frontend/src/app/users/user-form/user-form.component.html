@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>Nome</label>
+  <input formControlName="nome" />
+  <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">Nome é obrigatório</div>
+
+  <label>Email</label>
+  <input formControlName="email" />
+  <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Email inválido</div>
+
+  <div *ngIf="!isEditMode">
+    <label>Senha</label>
+    <input type="password" formControlName="password" />
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Salvar</button>
+</form>

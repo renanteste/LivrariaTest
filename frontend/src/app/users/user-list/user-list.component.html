@@ -1,1 +1,34 @@
-<p>user-list works!</p>
+<div class="user-list">
+  <div class="toolbar">
+    <h2>Usuários</h2>
+    <div class="actions">
+      <button routerLink="/users/create" class="btn">+ Novo Usuário</button>
+    </div>
+  </div>
+
+  <table *ngIf="users?.length; else empty" class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Cadastro</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{ u.nome }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.createdAt | date:'short' }}</td>
+        <td class="actions-col">
+          <button (click)="onEdit(u.id)" title="Editar">✏️</button>
+          <button (click)="onDelete(u.id)" title="Excluir">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #empty>
+    <p class="empty">Nenhum usuário cadastrado. Clique em “Novo Usuário” para registrar.</p>
+  </ng-template>
+</div>
