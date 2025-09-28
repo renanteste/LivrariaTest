@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
@@ -14,8 +14,7 @@ import { UserListComponent } from './user-list/user-list.component';
   imports: [
     CommonModule,
     UsersRoutingModule,
-    ReactiveFormsModule,
-    FormsModule // ← ESSENCIAL para template-driven forms
+    FormsModule
   ]
 })
-export class UsersModule { }
+export class UsersModule { } // ← Certificar que está exportando a classe

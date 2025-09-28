@@ -19,13 +19,15 @@
         <th>ID</th>
         <th>Nome</th>
         <th>E-mail</th>
+        <th>Data de Criação</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
         <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
+        <td>{{ user.nome }}</td>
         <td>{{ user.email }}</td>
+        <td>{{ user.createdAt | date:'dd/MM/yyyy HH:mm' }}</td>
       </tr>
     </tbody>
   </table>

@@ -3,13 +3,11 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
-  HttpInterceptorFn
+  HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
-// Classe para injeção de dependência
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
@@ -28,17 +26,3 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request);
   }
 }
-
-// Função para uso nos testes
-export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const authToken = localStorage.getItem('authToken');
-
-  if (authToken) {
-    const cloned = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${authToken}`)
-    });
-    return next(cloned);
-  }
-
-  return next(req);
-};

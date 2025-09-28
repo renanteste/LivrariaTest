@@ -11,7 +11,8 @@
         class="form-control"
         [class.error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
       <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
-        E-mail válido é obrigatório
+        <span *ngIf="loginForm.get('email')?.errors?.['required']">E-mail é obrigatório</span>
+        <span *ngIf="loginForm.get('email')?.errors?.['email']">E-mail deve ser válido</span>
       </div>
     </div>
 
@@ -24,7 +25,7 @@
         class="form-control"
         [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
       <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
-        Senha é obrigatória
+        <span *ngIf="loginForm.get('password')?.errors?.['required']">Senha é obrigatória</span>
       </div>
     </div>
 
@@ -39,7 +40,6 @@
       Entrar
     </button>
 
-    <!-- Adicionar link para cadastro -->
     <button
       type="button"
       class="btn btn-secondary"

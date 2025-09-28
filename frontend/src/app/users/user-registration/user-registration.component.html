@@ -3,16 +3,16 @@
 
   <form #userForm="ngForm" (ngSubmit)="onSubmit()" class="user-form">
     <div class="form-group">
-      <label for="name">Nome:</label>
+      <label for="nome">Nome:</label>
       <input
-        id="name"
+        id="nome"
         type="text"
-        [(ngModel)]="user.name"
-        name="name"
+        [(ngModel)]="user.nome"
+        name="nome"
         required
         class="form-control"
-        #name="ngModel">
-      <div *ngIf="name.invalid && name.touched" class="error-message">
+        #nome="ngModel">
+      <div *ngIf="nome.invalid && nome.touched" class="error-message">
         Nome é obrigatório
       </div>
     </div>
@@ -33,7 +33,6 @@
       </div>
     </div>
 
-    <!-- ADICIONAR CAMPO DE SENHA -->
     <div class="form-group">
       <label for="password">Senha:</label>
       <input

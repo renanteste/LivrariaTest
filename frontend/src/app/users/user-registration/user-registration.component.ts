@@ -10,7 +10,7 @@ import { UsersService, CreateUserRequest } from '../../services/users.service';
 })
 export class UserRegistrationComponent {
   user: CreateUserRequest = {
-    name: '',
+    nome: '',
     email: '',
     password: ''
   };
@@ -22,7 +22,7 @@ export class UserRegistrationComponent {
   ) {}
 
   onSubmit(): void {
-    if (this.user.name && this.user.email && this.user.password) {
+    if (this.user.nome && this.user.email && this.user.password) {
       this.usersService.createUser(this.user).subscribe({
         next: () => {
           this.router.navigate(['/users']);

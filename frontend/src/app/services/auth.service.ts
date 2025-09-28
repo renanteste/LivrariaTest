@@ -5,7 +5,6 @@ import { environment } from '../../environments/environment';
 
 export interface AuthResponse {
   token: string;
-  email: string;
 }
 
 export interface LoginRequest {
@@ -30,10 +29,6 @@ export class AuthService {
           this.tokenSubject.next(response.token);
         })
       );
-  }
-
-  register(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users`, user);
   }
 
   logout(): void {
